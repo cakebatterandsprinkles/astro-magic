@@ -1,0 +1,31 @@
+---
+import "../../styles/global.css";
+import Layout from "../../layouts/Layout.astro";
+import featherImage from "../../assets/feather.jpeg";
+import Greeting from "../../components/Greeting.astro";
+import Blog from "../../components/Blog/Blog.tsx";
+const allPosts = Object.values(
+  import.meta.glob("../../content/journal/*.md", { eager: true })
+).reverse();
+
+export interface Post {
+  layout?: string;
+  title: string;
+  date: string;
+  tags: string[];
+  summary: string;
+  contributor: string;
+}
+---
+
+<Layout>
+  <div>
+    <Greeting
+      imagePath={featherImage}
+      title="Journal"
+      subtext="This is a small journal I keep for the things that I find interesting. If you have copyright claims or you saw a missing attribute for the work that belongs to you, or if you think I'm wrong about something, mail me, as I'd love to learn and discuss. Thanks for hanging around. You're cool."
+    />
+    {/** Blogpost list */}
+    <Blog posts={allPosts.map((post: any) => post.frontmatter)} client:load />
+  </div>
+</Layout>

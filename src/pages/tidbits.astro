@@ -1,0 +1,17 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import cookie from "../assets/cookie.png";
+import Greeting from "../components/Greeting.astro";
+---
+
+<Layout>
+  <div>
+    <Greeting
+      imagePath={cookie}
+      title="Tidbits"
+      subtext="Some stuff I want to share for no good reason."
+    />
+    {/** Tidbit items */}
+  </div>
+</Layout>

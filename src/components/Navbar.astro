@@ -1,0 +1,33 @@
+---
+import mainNavData from "../data/mainNavData.js";
+import NavLink from "./NavLink.astro";
+import "iconify-icon";
+---
+
+<nav aria-label="navbar">
+  <div class="px-4">
+    <div
+      class="flex flex-col xl:flex-row xl:justify-between align-center max-w-60"
+    >
+      {
+        mainNavData.map((nav) => {
+          return (
+            <NavLink
+              to={nav.to}
+              title={nav.title}
+              navClass={nav.navClass}
+              icon={nav.icon}
+              iconClass={nav.iconClass}
+              id={nav.id}
+              ariaLabel={nav.ariaLabel}
+            />
+          );
+        })
+      }
+    </div>
+  </div>
+</nav>
+
+<script>
+  import "../js/nav.js";
+</script>

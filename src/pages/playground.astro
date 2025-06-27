@@ -1,0 +1,17 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import pinkGuy from "../assets/pink-guy.png";
+import Greeting from "../components/Greeting.astro";
+---
+
+<Layout>
+  <div>
+    <Greeting
+      imagePath={pinkGuy}
+      title="Playground"
+      subtext="Some stuff I made while learning or just for fun. Not everything is polished, but I hope you enjoy it!"
+    />
+    {/** Portfolio items */}
+  </div>
+</Layout>

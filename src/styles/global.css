@@ -1,41 +1,77 @@
 @import "tailwindcss";
 
 :root {
-  --accent: #2337ff;
-  --accent-dark: #000d8a;
-  --black: 15, 18, 25;
-  --gray: 96, 115, 159;
-  --gray-light: 229, 233, 240;
-  --gray-dark: 34, 41, 57;
-  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
-  --box-shadow: 0 2px 6px rgba(var(--gray), 25%),
-    0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
+  --black: #202020;
+  --lightcloudgray: #cedeec;
+  --darkcloudgray: #b3c1ce;
+  --lightgray: #cacfd2;
+  --verylightgray: #f1f2f3;
+  --darkgray: #49545e;
+  --coolgray: #3d4852;
+  --silver: #bfcacf;
+  --snow: #fbf9fa;
+  --dirtysnow: #f0efef;
+  --purple: #ae9fe0;
+  --palepink: #e995ad;
+  --brightyellow: #ffdb3a;
+  --darkyellow: #feb101;
+  --yellow: #fc0;
+  --paleyellow: #fffbcc;
+  --cadmiumorange: #f99000;
+  --orange: #ff6200;
+  --crimson: #eb2557;
+  --indianred: #d56062;
+  --firered: #b22222;
+  --limegreen: #21d511;
+  --grassgreen: #8da73e;
+  --ivygreen: #036757;
+  --springgreen: #01fd82;
+  --mint: #91fff4;
+  --cornflowerblue: #4399de;
+  --aeroblue: #8ac4ff;
+  --indigo: #5e2bff;
+  --darkviolet: #8d09f7;
+  --mediumpurple: #9381ff;
+  --deeppink: #e637bf;
+  --candypink: #ff70a6;
+  --salmon: #ff9580;
+  --seagreen: #03aaae;
+  --babyblue: #4399de30;
+  --babyorange: #ff620030;
+  --babyyellow: #ffcc0030;
+  --babyred: #eb255730;
+  --babypurple: #8d09f730;
+  --babygreen: #21d51130;
+  --babypink: #e637bf30;
+  --regular-font: "Anonymous Pro";
+  --article-font: "Raleway";
+  --heading-font: "Share Tech Mono";
+  --pixel-font: "Rock Salt";
+  --title-font: "Press Start 2P";
+  --riddle-font: "Eagle Lake";
+  --box-shadow:
+    0 2px 6px rgba(var(--darkgray), 25%), 0 8px 24px rgba(var(--darkgray), 33%),
+    0 16px 32px rgba(var(--darkgray), 33%);
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --brick-pattern: conic-gradient(at 90% 40%, #0000 75%, #f0efef97 0);
+  --brick-pattern2: conic-gradient(at 90% 40%, #0000 75%, #f0efef97 0);
 }
-@font-face {
-  font-family: "Atkinson";
-  src: url("/fonts/atkinson-regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Atkinson";
-  src: url("/fonts/atkinson-bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+
 body {
-  font-family: "Atkinson", sans-serif;
+  font-family: "Raleway", sans-serif;
   margin: 0;
   padding: 0;
   text-align: left;
   background-size: 100% 600px;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  color: rgb(var(--gray-dark));
-  font-size: 20px;
+  color: rgb(var(--darkgray));
+  font-size: 1.1rem;
   line-height: 1.7;
+  height: 100%;
 }
 main {
   width: 720px;
@@ -73,13 +109,10 @@ b {
   font-weight: 700;
 }
 a {
-  color: var(--accent);
+  color: var(--cornflowerblue);
 }
 a:hover {
-  color: var(--accent);
-}
-p {
-  margin-bottom: 1em;
+  color: var(--candypink);
 }
 .prose p {
   margin-bottom: 2em;
@@ -101,7 +134,7 @@ img {
 }
 code {
   padding: 2px 5px;
-  background-color: rgb(var(--gray-light));
+  background-color: rgb(var(--lightgray));
   border-radius: 2px;
 }
 pre {
@@ -112,14 +145,14 @@ pre > code {
   all: unset;
 }
 blockquote {
-  border-left: 4px solid var(--accent);
+  border-left: 4px solid var(--cornflowerblue);
   padding: 0 0 0 20px;
   margin: 0px;
   font-size: 1.333em;
 }
 hr {
   border: none;
-  border-top: 1px solid rgb(var(--gray-light));
+  border-top: 1px solid rgb(var(--lightgray));
 }
 @media (max-width: 720px) {
   body {

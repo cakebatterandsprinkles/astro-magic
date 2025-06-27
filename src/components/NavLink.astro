@@ -1,0 +1,98 @@
+---
+import "iconify-icon";
+
+interface Props {
+  to: string;
+  title: string;
+  navClass?: string;
+  icon?: string;
+  iconClass?: string;
+  id?: string;
+  ariaLabel?: string;
+}
+
+const { to, title, navClass, icon, iconClass, id, ariaLabel } = Astro.props;
+const currentPath = Astro.url.pathname;
+const isActivePath =
+  currentPath === to ||
+  ((currentPath === "/" || currentPath.includes("journal")) &&
+    (to === "/" || to === "/journal"));
+---
+
+<a href={to} class:list={[navClass, !isActivePath || "active"]}>
+  {
+    icon ? (
+      <iconify-icon
+        icon={icon}
+        class={iconClass}
+        id={id}
+        aria-label={ariaLabel}
+      />
+    ) : null
+  }
+  {title}
+</a>
+
+<style>
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-family: "Anonymous Pro", monospace;
+    color: var(--darkgray);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    padding: 0.25rem 0.75rem;
+    font-weight: bold;
+    margin-right: 0.25rem;
+
+    iconify-icon {
+      font-size: 1.2rem;
+      color: var(--darkgray);
+      margin-right: 0.35rem;
+    }
+  }
+
+  .nav-link:hover {
+    background-color: var(--verylightgray);
+    border-radius: 1rem;
+  }
+
+  .active {
+    color: var(--darkgray);
+    background-color: var(--snow);
+    border: 1px solid var(--silver);
+    border-radius: 1rem;
+    outline: solid 1px var(--silver);
+    outline-offset: -3px;
+  }
+
+  #robot-icon {
+    color: var(--yellow);
+  }
+
+  #fire-icon {
+    color: var(--cadmiumorange);
+  }
+
+  #seedling-icon {
+    color: var(--deeppink);
+  }
+
+  #book-icon {
+    color: var(--grassgreen);
+  }
+
+  #star-icon {
+    color: var(--cornflowerblue);
+  }
+
+  #lightbulb-icon {
+    color: var(--darkviolet);
+  }
+</style>

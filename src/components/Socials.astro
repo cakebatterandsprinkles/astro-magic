@@ -1,0 +1,99 @@
+---
+import "iconify-icon";
+---
+
+<div class="social-container">
+  <div class="title">Yagmur Marceline Tas</div>
+  <div
+    class="flex-grow border-solid border-gray-300 border-t-2 hidden lg:block mt-1 mx-4"
+  >
+  </div>
+  <div class="icon-container">
+    <a href="mailto:yagmurcetin@gmail.com" target="_blank" rel="noreferrer">
+      <iconify-icon icon="pixel:envelope" class="icon" id="mail-icon"
+      ></iconify-icon>
+    </a>
+    <a
+      href="https://github.com/cakebatterandsprinkles"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <iconify-icon icon="pixel:github" class="icon" id="github-icon"
+      ></iconify-icon>
+    </a>
+    <a
+      href="https://www.linkedin.com/in/yagmur-cetin-tas/"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <iconify-icon icon="pixel:linkedin" class="icon" id="linkedin-icon"
+      ></iconify-icon>
+    </a>
+    <a
+      href="https://scholar.google.com/citations?user=wJctGgcAAAAJ&hl=en&oi=ao"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <iconify-icon icon="pixel:science" class="icon" id="lab-icon"
+      ></iconify-icon>
+    </a>
+    <a
+      href="https://open.spotify.com/playlist/3TfdGxK3hPKiVXef3JIOt2?si=903b78b4551f43fc"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <iconify-icon icon="entypo-social:spotify" class="icon" id="spotify-icon"
+      ></iconify-icon>
+    </a>
+  </div>
+  <div
+    class="w-full border-solid border-gray-300 border-t-2 block xl:hidden mt-1"
+  >
+  </div>
+</div>
+
+<style>
+  .social-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 2rem 2rem 2rem;
+  }
+  .title {
+    font-family: "Share Tech Mono", monospace;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--darkgray);
+    max-width: 20rem;
+  }
+  .icon {
+    display: inline-block;
+    font-size: 1.3rem;
+    color: var(--darkgray);
+    margin-right: 0.25rem;
+    max-width: 20rem;
+  }
+  #mail-icon:hover {
+    color: var(--cadmiumorange);
+  }
+  #spotify-icon:hover {
+    color: var(--springgreen);
+  }
+  #lab-icon:hover {
+    color: var(--candypink);
+  }
+  #github-icon:hover {
+    color: var(--darkviolet);
+  }
+  #linkedin-icon:hover {
+    color: var(--cornflowerblue);
+  }
+
+  @media (max-width: 1280px) {
+    .social-container {
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 2rem;
+    }
+  }
+</style>

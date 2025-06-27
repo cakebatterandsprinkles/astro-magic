@@ -1,0 +1,271 @@
+---
+import { ClientRouter } from "astro:transitions";
+import Castle from "../assets/castle.png";
+import Dragon from "../assets/big_bad_dragon.png";
+import Cockatiel from "../assets/cockatiel.png";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import Socials from "../components/Socials.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import "../styles/global.css";
+import { Picture } from "astro:assets";
+import Tooltip from "../components/Tooltip";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <ClientRouter />
+  </head>
+  <body>
+    <div class="flex flex-row justify-center">
+      <div class="shrink-0">
+        <Picture
+          src={Castle}
+          alt="Castle image"
+          class="max-h-screen min-h-screen w-auto sticky top-0 hidden lg:block"
+          usemap="#castlemap"
+        />
+        <Tooltip
+          text=`Click not the mage, thou curious knave,
+            \nShe’ll summon a dragon who just won’t behave.
+            \nIt burps out fire and steals thy cheese —
+            \nThen naps on thy keyboard, squashing thy keys!`
+        >
+          <map name="castlemap" class="cursor-pointer">
+            <area
+              shape="circle"
+              coords="190,120,75"
+              alt="Magician"
+              id="magician"
+              transition:persist
+            />
+          </map>
+        </Tooltip>
+      </div>
+      <div>
+        <div class="mt-0 lg:mt-18">
+          <div class="flex justify-center">
+            <Picture
+              src={Cockatiel}
+              alt="A normal cockatiel behaviour of pressing a button it shouldn't be pressing"
+              class="lg:hidden cockatiel"
+              usemap="#cockatielmap"
+            />
+            <map name="cockatielmap" class="cursor-pointer">
+              <area
+                shape="circle"
+                coords="210,120,30"
+                alt="Button"
+                id="cockatiel"
+                transition:persist
+              />
+            </map>
+          </div>
+          <Socials />
+          <Navbar />
+          <div class="p-4 flex flex-col" transition:animate="slide">
+            {/* This is a placeholder for the main content area */}
+            <slot />
+          </div>
+        </div>
+        <Footer />
+      </div>
+      <div class="shrink-0">
+        <Picture
+          src={Dragon}
+          alt="Dragon image"
+          class="max-h-screen min-h-screen w-auto sticky top-0 hidden lg:block"
+        />
+      </div>
+    </div>
+    <!-- Meteors -->
+    <section>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </section>
+  </body>
+</html>
+
+<script>
+  import confetti from "canvas-confetti";
+
+  const magician = document.querySelector("#magician");
+
+  magician?.addEventListener("click", () => {
+    const meteors = document.querySelectorAll("span");
+    meteors.forEach((el) => {
+      if (el.classList.contains("active")) return;
+      el.classList.add("active");
+      setTimeout(() => {
+        el.classList.remove("active");
+      }, 10000);
+    });
+  });
+
+  const cockatielButton = document.querySelector("#cockatiel");
+  cockatielButton?.addEventListener("click", () => {
+    confetti({
+      particleCount: 100,
+      gravity: 2,
+      spread: 70,
+      origin: {
+        y: 0.15,
+        x: 0.55,
+      },
+    });
+  });
+</script>
+
+<style>
+  .riddle-text {
+    font-family: var(--riddle-font), serif;
+    color: var(--darkgray);
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: center;
+    padding: 1.25rem;
+    background: #f5d3a0;
+    box-shadow: inset 0 0 30px rgba(42, 42, 42, 0.5);
+    border-radius: 3px;
+  }
+
+  .cockatiel {
+    max-width: 20rem;
+  }
+
+  span {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: var(--yellow);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 4px rgba(42, 39, 39, 0.1),
+      0 0 0 8px rgba(31, 23, 23, 0.1),
+      0 0 30px rgb(209, 167, 77);
+  }
+
+  span.active {
+    animation: animate 5s linear infinite;
+    animation-iteration-count: 2;
+  }
+
+  span::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--yellow), transparent);
+  }
+  @keyframes animate {
+    0% {
+      transform: rotate(210deg) translateX(0);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(210deg) translateX(-1500px);
+      opacity: 0;
+    }
+  }
+  span:nth-child(1) {
+    top: -30px;
+    right: 0;
+    left: initial;
+    background: var(--orange);
+    width: 0.9rem;
+    height: 0.9rem;
+    animation-delay: 0;
+    animation-duration: 1s;
+  }
+
+  span:nth-child(2) {
+    top: -30px;
+    right: 500px;
+    left: initial;
+    background: var(--mint);
+    width: 0.9rem;
+    height: 0.9rem;
+    animation-delay: 0.2s;
+    animation-duration: 3s;
+  }
+
+  span:nth-child(3) {
+    top: -30px;
+    right: 180px;
+    left: initial;
+    background: var(--yellow);
+    width: 1rem;
+    height: 1rem;
+    animation-delay: 0.6s;
+    animation-duration: 1.5s;
+  }
+
+  span:nth-child(4) {
+    top: -20px;
+    right: 400px;
+    left: initial;
+    animation-delay: 0.8s;
+    animation-duration: 2.5s;
+  }
+
+  span:nth-child(5) {
+    top: -40px;
+    right: 600px;
+    left: initial;
+    background: var(--indigo);
+    width: 1rem;
+    height: 1rem;
+    animation-delay: 1s;
+    animation-duration: 3s;
+  }
+
+  span:nth-child(6) {
+    top: -40px;
+    right: 700px;
+    left: initial;
+    background: var(--limegreen);
+    width: 1.1rem;
+    height: 1.1rem;
+    animation-delay: 1.4s;
+    animation-duration: 1.25s;
+  }
+
+  span:nth-child(7) {
+    top: -30px;
+    right: 1000px;
+    left: initial;
+    background: var(--deeppink);
+    width: 0.9rem;
+    height: 0.9rem;
+    animation-delay: 0.75s;
+    animation-duration: 2.25s;
+  }
+
+  span:nth-child(8) {
+    top: -40px;
+    right: 1100px;
+    left: initial;
+    background: var(--crimson);
+    width: 1rem;
+    height: 1rem;
+    animation-delay: 2.75s;
+    animation-duration: 2.25s;
+  }
+</style>

@@ -1,86 +1,118 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import { Image } from 'astro:assets';
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import type { CollectionEntry } from "astro:content";
+type Props = CollectionEntry<"journal">["data"];
 
-type Props = CollectionEntry<'blog'>['data'];
-
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, summary, date, tags, contributor } = Astro.props;
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
+<Layout>
+  <div class="post-wrapper">
+    <div class="post-header-container">
+      <div class="post-header">{title}</div>
+      <div class="article-date">
+        {
+          date.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        }
+      </div>
+    </div>
 
-	<body>
-		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
-</html>
+    <slot />
+  </div>
+</Layout>
+
+<style>
+  .post-header-container {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--lightgray);
+  }
+
+  .post-header {
+    font-family: var(--pixel-font);
+    font-size: 1.5rem;
+  }
+
+  .article-date {
+    font-size: 0.8rem;
+    white-space: nowrap;
+    color: var(--darkgray);
+    padding-top: 0.35rem;
+  }
+  .post-wrapper {
+    padding: 1rem;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 0.5rem;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    h3 {
+      font-size: 1.35rem;
+    }
+    h4 {
+      font-size: 1.2rem;
+    }
+    h6 {
+      font-size: 0.9rem;
+
+      strong,
+      a,
+      text {
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+    }
+
+    p,
+    li {
+      font-size: 1rem;
+
+      img {
+        margin: 0.5rem 0;
+      }
+    }
+
+    ol li {
+      list-style: decimal;
+      list-style-position: inside;
+      margin-left: 1.5rem;
+
+      p {
+        display: inline;
+      }
+    }
+
+    ul li {
+      list-style: disc;
+      list-style-position: inside;
+
+      p {
+        display: inline;
+      }
+    }
+
+    pre,
+    summary {
+      margin: 0.5rem 0 1rem 0;
+    }
+
+    summary {
+      cursor: pointer;
+    }
+
+    #resources {
+      border-top: 1px solid var(--darkgray);
+      padding-top: 1rem;
+    }
+  }
+</style>

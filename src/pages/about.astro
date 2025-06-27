@@ -1,63 +1,147 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import flowerImage from "../assets/flowers.jpg";
+import Greeting from "../components/Greeting.astro";
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
-
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
-
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
-
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
-
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
+<Layout>
+  <div>
+    <Greeting imagePath={flowerImage} title="Hello!" />
+    <div class="px-4 aboutWrapper">
+      <div class="flex align-baseline">
+        Hey there! <iconify-icon
+          icon="pixelarticons:human-handsup"
+          class="text-xl"></iconify-icon> I'm Yagmur (a.k.a. Marceline) - nice to
+        meet you!
+      </div>
+      <div>
+        I'm a <span class="pink highlight mr-0.5">
+          front-end / full-stack web developer
+        </span> living in hellishly sunny Orlando, Florida. My path to coding wasn't
+        exactly straight. It was more like a twisty, turny adventure involving stethoscopes,
+        lab rats, art supplies, and eventually - JavaScript.
+      </div>
+      <div>
+        Once upon a time, I was a medical doctor (true story!) and even worked
+        as a neurology resident. But what really fascinated me wasn't the
+        day-to-day of patient care, it was the "why" and "how" behind it all. I
+        was full of questions like: Why do we dream? Why do we have a dominant
+        hand? How does the brain get affected by the systemic diseases? These
+        questions led me down the rabbit hole of neuroscience, where I earned a
+        PhD and spent years studying how diseases like hypertension, diabetes,
+        and Parkinson's affect the brain microcirculation and cognition. It was
+        intense, rewarding, and intellectually rich - but still, something was
+        missing.
+      </div>
+      <div>
+        After moving to Florida in 2018, I dabbled in art, design, and all kinds
+        of creative things. One day in 2019, I decided to build an online
+        portfolio for my artwork, and figured I'd learn a bit of code to make it
+        look just right. Turns out, I didn't just like coding, I loved it! So, I
+        dove in headfirst. I joined UCF's Full Stack Web Development Bootcamp
+        that May, and I've been coding happily ever after.
+      </div>
+      <div>
+        These days, I work mostly with <span class="yellow highlight"
+          >JavaScript</span
+        >,{" "}
+        <span class="blue highlight">TypeScript</span>,{" "}
+        <span class="crimson highlight">React</span>,{" "}
+        <span class="orange highlight">Redux</span>, and backend tools like
+        <span class="purple highlight">Node.js</span>,{" "}
+        <span class="pink highlight">NestJS</span>,{" "}
+        <span class="green highlight">Express</span>,{" "}
+        <span class="orange highlight">MongoDB</span>. I build all sorts of fun
+        and useful things with APIs, and I love learning something new every
+        day. I am also currently getting my CS degree at WGU.
+      </div>
+      <div>
+        When I'm not coding, you can usually find me running road races or
+        reading about brains, languages, history, or animal behavior (I'm
+        especially into corvids and rodents <iconify-icon
+          icon="mingcute:bird-line"
+          class="text-xl"></iconify-icon><iconify-icon
+          icon="mingcute:mickeymouse-line"
+          class="text-xl"></iconify-icon>). I also make little creatures out of
+        clay and ink, and sometimes they even turn out cute!
+      </div>
+      <div>
+        It's been a wild journey, but I think I've finally found my place in
+        programming, where curiosity and creativity can thrive side by side.
+      </div>
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .greetingContainer {
+    display: flex;
+    align-items: end;
+    margin-bottom: 1rem;
+  }
+  .greeting {
+    font-size: 2rem;
+    font-family: "Share Tech Mono", monospace;
+    font-weight: bold;
+    margin: 1rem 0 0 1rem;
+    color: var(--darkgray);
+  }
+
+  .aboutWrapper {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    line-height: 1.75rem;
+    font-family: var(--article-font);
+
+    .icon {
+      width: 15rem;
+      color: var(--darkgray);
+      margin-left: 0.5rem;
+    }
+  }
+
+  .highlight {
+    padding: 0.1rem 0.25rem;
+    border-radius: 5px;
+    font-weight: 600;
+    white-space: nowrap;
+    font-size: 0.85rem;
+  }
+
+  .yellow {
+    color: #8b6f03;
+    background-color: var(--babyyellow);
+  }
+
+  .orange {
+    color: #993d03;
+    background-color: var(--babyorange);
+  }
+
+  .crimson {
+    color: #9b1d3d;
+    background-color: var(--babyred);
+  }
+
+  .green {
+    color: #15820c;
+    background-color: var(--babygreen);
+  }
+
+  .blue {
+    color: #2b5c85;
+    background-color: var(--babyblue);
+  }
+
+  .purple {
+    color: #5c0e9b;
+    background-color: var(--babypurple);
+  }
+
+  .pink {
+    color: #96277e;
+    background-color: var(--babypink);
+  }
+</style>

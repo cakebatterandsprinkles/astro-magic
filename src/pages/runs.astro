@@ -1,0 +1,13 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import run from "../assets/run.png";
+import Greeting from "../components/Greeting.astro";
+---
+
+<Layout>
+  <div>
+    <Greeting imagePath={run} title="Runs" subtext="Running adventures <3" />
+    {/** Running items */}
+  </div>
+</Layout>

@@ -1,0 +1,18 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import paintImage from "../assets/paint.jpeg";
+import Greeting from "../components/Greeting.astro";
+---
+
+<Layout>
+  <div>
+    <Greeting
+      imagePath={paintImage}
+      title="Gallery"
+      subtext="Be a kind human and give the correct attribution or ask for permission to use any of my artwork. Thank you!"
+    />
+    {/** Gallery Navbar */}
+    {/** Gallery Items */}
+  </div>
+</Layout>

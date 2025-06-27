@@ -1,0 +1,161 @@
+.card {
+  transition: background-color 0.3s ease;
+  color: var(--darkgray);
+  border-left: 0.25rem solid var(--lightgray);
+  border-radius: 2rem 0.25rem;
+  padding: 2rem 1rem 1rem 2rem;
+  margin-bottom: 1.5rem;
+  background-color: var(--dirtysnow);
+  background:
+    var(--brick-pattern),
+    var(--brick-pattern) 1.5rem 1.5rem var(--snow);
+  background-size: calc(2 * 1.5rem) calc(2 * 1.5rem);
+}
+
+.card:hover {
+  background-color: var(--verylightgray);
+}
+
+.dateAndTitleContainer {
+  font-family: var(--heading-font);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.articleTitle {
+  font-family: var(--heading-font);
+  font-size: 1.25rem;
+  color: var(--coolgray);
+}
+
+.articleDate {
+  font-size: 0.8rem;
+  white-space: nowrap;
+  color: var(--darkgray);
+  padding-top: 0.35rem;
+}
+
+.summaryContainer {
+  font-family: var(--article-font), "sans-serif";
+  font-size: 0.9rem;
+  margin: 1rem 0 1.5rem 0;
+  color: var(--coolgray);
+  font-feature-settings: "lnum";
+}
+
+.tagAndContributorContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tagContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tagWrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tagWrapper > .tag {
+  padding: 0.25rem 0.4rem;
+  margin-right: 0.25rem;
+  margin-bottom: 0;
+  color: var(--snow);
+  font-weight: bold;
+  font-size: 0.7rem;
+  border-radius: 5px;
+  font-family: "Roboto Mono", monospace;
+  cursor: default;
+  opacity: 65%;
+  white-space: nowrap;
+}
+
+.springgreen {
+  background-color: var(--springgreen);
+}
+
+.yellow {
+  background-color: var(--yellow);
+}
+
+.orange {
+  background-color: var(--orange);
+}
+
+.crimson {
+  background-color: var(--crimson);
+}
+
+.green {
+  background-color: var(--limegreen);
+}
+
+.grassgreen {
+  background-color: var(--grassgreen);
+}
+
+.ivygreen {
+  background-color: var(--ivygreen);
+}
+
+.firered {
+  background-color: var(--firered);
+}
+
+.palepink {
+  background-color: var(--palepink);
+}
+
+.candypink {
+  background-color: var(--candypink);
+}
+
+.blue {
+  background-color: var(--cornflowerblue);
+}
+
+.indigo {
+  background-color: var(--indigo);
+}
+
+.purple {
+  background-color: var(--darkviolet);
+}
+
+.pink {
+  background-color: var(--deeppink);
+}
+
+.salmon {
+  background-color: var(--salmon);
+}
+
+.seagreen {
+  background-color: var(--seagreen);
+}
+
+.lightpurple {
+  background-color: var(--purple);
+}
+
+.cadmiumorange {
+  background-color: var(--cadmiumorange);
+}
+
+.aeroblue {
+  background-color: var(--aeroblue);
+}
+
+.mediumpurple {
+  background-color: var(--mediumpurple);
+}
+
+.indianred {
+  background-color: var(--indianred);
+}

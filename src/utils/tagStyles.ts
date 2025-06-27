@@ -1,0 +1,23 @@
+export const tagStyles: Record<string, string> = {
+  JavaScript: "yellow",
+  "Computer Science": "orange",
+  Mathematics: "crimson",
+  Genetics: "green",
+  Redux: "blue",
+  Neuroscience: "purple",
+  Japan: "pink",
+  History: "seagreen",
+  "Web Development": "salmon",
+  Docker: "cadmiumorange",
+  Redis: "indianred",
+  React: "lightpurple",
+  GraphQL: "grassgreen",
+  "Express.js": "palepink",
+  Ornithology: "aeroblue",
+  TypeScript: "candypink",
+  Typography: "indigo",
+  "Node.js": "ivygreen",
+  DevOps: "firered",
+  default: "mediumpurple",
+};
+export type TagStyles = keyof typeof tagStyles;

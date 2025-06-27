@@ -15,10 +15,16 @@
     "@astrojs/sitemap": "^3.4.1",
     "@tailwindcss/vite": "^4.1.8",
     "astro": "^5.8.2",
+    "astro-icon": "^1.1.5",
+    "canvas-confetti": "^1.9.3",
+    "iconify-icon": "^3.0.0",
+    "nanostores": "^1.0.1",
     "sharp": "^0.34.2",
-    "tailwindcss": "^4.1.8"
+    "tailwindcss": "^4.1.8",
+    "vite-plugin-svgr": "^4.3.0"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
     "prettier": "3.5.3"
   }
 }
