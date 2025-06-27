@@ -2,18 +2,14 @@
 import { Picture } from "astro:assets";
 
 interface Props {
-  imagePath: ImageMetadata;
   title: string;
   subtext?: string;
 }
 
-const { imagePath, title, subtext } = Astro.props;
+const { title, subtext } = Astro.props;
 ---
 
 <div class="greetingContainer">
-  <div class="w-36 pl-3 shrink-0">
-    <Picture src={imagePath} alt="greeting logo" formats={["avif", "webp"]} />
-  </div>
   <div class="ml-3">
     <p class="greeting mb-0">{title}</p>
     {subtext ? <p class="text-sm">{subtext}</p> : null}

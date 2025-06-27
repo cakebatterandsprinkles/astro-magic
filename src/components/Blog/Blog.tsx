@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Blog.css";
 import type { Post } from "../../pages/journal/index.astro";
-import { createHaiku } from "../../utils/createHaiku";
 import { tagStyles } from "../../utils/tagStyles";
 import Pagination from "../Pagination/Pagination";
 import { JournalCard } from "../../layouts/JournalCard";
@@ -164,7 +163,6 @@ const Blog = ({ posts }: { posts: Post[] }) => {
 
   return (
     <>
-      {/* {createHaiku()} */}
       <div className="sidebar">
         <div className="searchWrapper">
           <img src={SearchIcon.src} className="searchIcon" />
