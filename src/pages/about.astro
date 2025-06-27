@@ -1,13 +1,12 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
-import flowerImage from "../assets/flowers.jpg";
 import Greeting from "../components/Greeting.astro";
 ---
 
 <Layout>
   <div>
-    <Greeting imagePath={flowerImage} title="Hello!" />
+    <Greeting title="Hello!" />
     <div class="px-4 aboutWrapper">
       <div class="flex align-baseline">
         Hey there! <iconify-icon

@@ -1,7 +1,8 @@
 ---
-import mainNavData from "../data/mainNavData.js";
+import mainNavData, { type NavItem } from "../data/mainNavData.js";
 import NavLink from "./NavLink.astro";
 import "iconify-icon";
+const { navList } = Astro.props;
 ---
 
 <nav aria-label="navbar">
@@ -10,7 +11,7 @@ import "iconify-icon";
       class="flex flex-col xl:flex-row xl:justify-between align-center max-w-60"
     >
       {
-        mainNavData.map((nav) => {
+        navList.map((nav: NavItem) => {
           return (
             <NavLink
               to={nav.to}

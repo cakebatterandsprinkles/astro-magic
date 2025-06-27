@@ -1,0 +1,55 @@
+---
+import { Picture } from "astro:assets";
+
+const { medium, studioLink, studio, imageSrc, name, year, altText } =
+  Astro.props.image;
+---
+
+<div class="polaroidContainer">
+  <Picture src={imageSrc} alt={altText} class="imageContainer" />
+  <div class="infoContainer">
+    <div class="cardHeader">
+      {name}, {year}
+    </div>
+    <div class="subHeader">{medium}</div>
+    {
+      studio ? (
+        <div class="subHeader">
+          Studio:{" "}
+          <a
+            href={studioLink}
+            class={studioLink}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {studio}
+          </a>
+        </div>
+      ) : null
+    }
+  </div>
+</div>
+
+<style>
+  .polaroidContainer {
+    padding: 1rem;
+    background: var(--snow);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .cardHeader {
+    font-family: var(--heading-font);
+    padding-bottom: 0.25rem;
+    border-bottom: 0.5px solid var(--silver);
+    margin-top: 0.5rem;
+  }
+
+  .subHeader {
+    font-family: var(--article-font);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+</style>

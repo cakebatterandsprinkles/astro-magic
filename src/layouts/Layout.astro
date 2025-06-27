@@ -11,6 +11,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import "../styles/global.css";
 import { Picture } from "astro:assets";
 import Tooltip from "../components/Tooltip";
+import mainNavData from "../data/mainNavData";
 ---
 
 <!doctype html>
@@ -65,7 +66,7 @@ import Tooltip from "../components/Tooltip";
             </map>
           </div>
           <Socials />
-          <Navbar />
+          <Navbar navList={mainNavData} />
           <div class="p-4 flex flex-col" transition:animate="slide">
             {/* This is a placeholder for the main content area */}
             <slot />

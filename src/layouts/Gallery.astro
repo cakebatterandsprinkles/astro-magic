@@ -1,0 +1,126 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Greeting from "../components/Greeting.astro";
+import Navbar from "../components/Navbar.astro";
+import galleryNavData from "../data/galleryNavData";
+import Polaroid from "../components/Polaroid.astro";
+import type { GalleryData } from "../utils/artworks";
+
+const { imageList } = Astro.props;
+---
+
+<Layout>
+  <div>
+    <Greeting
+      title="Gallery"
+      subtext="Be a kind human—like the kind who rescues spiders and returns shopping carts—and give credit or ask before using my artwork. Thank you kindly, you magnificent creature!"
+    />
+    {/** Gallery Navbar */}
+    <Navbar navList={galleryNavData} />
+    {/** Gallery Items */}
+    <div class="gridContainer">
+      {
+        imageList
+          .sort((a: GalleryData, b: GalleryData) => +a.year - +b.year)
+          .map((w: GalleryData) => (
+            <div class="card">
+              <Polaroid image={w} />
+            </div>
+          ))
+      }
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .gridContainer {
+    width: 100%;
+    min-height: 36vh;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .gridContainer .card {
+    width: 48%;
+  }
+
+  .card {
+    min-height: 35vh;
+    display: flex;
+    margin: 0.5rem 0;
+  }
+
+  @media (max-width: 1680px) {
+    .gridContainer {
+      padding-top: 0;
+    }
+
+    .gridContainer .card {
+      width: 100%;
+    }
+
+    .card {
+      min-height: 40vh;
+    }
+
+    .heading {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .heading {
+      font-size: 1.75rem;
+    }
+    .headingContainer {
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .cardSummary,
+    .cardWrapper {
+      font-size: 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .cardTitle {
+      font-size: 1rem;
+      padding: 0.25rem 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card {
+      min-height: 34vh;
+    }
+
+    .heading {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .disclaimerText {
+      font-size: 0.7rem;
+    }
+
+    .gridContainer {
+      padding-top: 0.5rem;
+    }
+  }
+
+  @media (max-width: 300px) {
+    .cardSummary,
+    .cardWrapper {
+      font-size: 0.6rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .cardTitle {
+      font-size: 0.9rem;
+    }
+  }
+</style>
