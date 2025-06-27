@@ -21,7 +21,7 @@ const isActivePath =
 
 <a href={to} class:list={[navClass, !isActivePath || "active"]}>
   {
-    icon ? (
+    iconClass ? (
       <iconify-icon
         icon={icon}
         class={iconClass}
@@ -72,27 +72,23 @@ const isActivePath =
     outline-offset: -3px;
   }
 
-  #robot-icon {
+  #about-icon {
     color: var(--yellow);
   }
 
-  #fire-icon {
-    color: var(--cadmiumorange);
-  }
-
-  #seedling-icon {
+  #gallery-icon {
     color: var(--deeppink);
   }
 
-  #book-icon {
+  #journal-icon {
     color: var(--grassgreen);
   }
 
-  #star-icon {
+  #tidbit-icon {
     color: var(--cornflowerblue);
   }
 
-  #lightbulb-icon {
+  #portfolio-icon {
     color: var(--darkviolet);
   }
 </style>

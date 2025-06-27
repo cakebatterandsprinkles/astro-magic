@@ -1,11 +1,21 @@
-const mainNavData = [
+export type NavItem = {
+  to: string;
+  title: string;
+  navClass: string;
+  icon?: string;
+  iconClass?: string;
+  id: string;
+  ariaLabel: string;
+};
+
+const mainNavData: NavItem[] = [
   {
     to: "/about",
     title: "About me",
     navClass: "nav-link",
     icon: "wi:moon-alt-new",
     iconClass: "icon",
-    id: "robot-icon",
+    id: "about-icon",
     ariaLabel: "Link to the about me page",
   },
   {
@@ -14,7 +24,7 @@ const mainNavData = [
     navClass: "nav-link",
     icon: "wi:moon-alt-new",
     iconClass: "icon",
-    id: "book-icon",
+    id: "journal-icon",
     ariaLabel: "Link to the list of journal entries",
   },
   {
@@ -23,7 +33,7 @@ const mainNavData = [
     navClass: "nav-link",
     icon: "wi:moon-alt-new",
     iconClass: "icon",
-    id: "seedling-icon",
+    id: "gallery-icon",
     ariaLabel: "Link to gallery",
   },
   {
@@ -32,7 +42,7 @@ const mainNavData = [
     navClass: "nav-link",
     icon: "wi:moon-alt-new",
     iconClass: "icon",
-    id: "star-icon",
+    id: "tidbit-icon",
     ariaLabel: "Link to tidbits",
   },
   {
@@ -41,17 +51,8 @@ const mainNavData = [
     navClass: "nav-link",
     icon: "wi:moon-alt-new",
     iconClass: "icon",
-    id: "lightbulb-icon",
+    id: "portfolio-icon",
     ariaLabel: "Link to projects",
-  },
-  {
-    to: "/runs",
-    title: "Runs",
-    navClass: "nav-link",
-    icon: "wi:moon-alt-new",
-    iconClass: "icon",
-    id: "fire-icon",
-    ariaLabel: "Link to the list of races I've run so far",
   },
 ] as const;
 export default mainNavData;
