@@ -22,11 +22,47 @@ const { title, summary, date, tags, contributor } = Astro.props;
       </div>
     </div>
 
-    <slot />
+    <div
+      class="prose max-w-none prose-img:mb-0 prose-h6:text-sm prose-h4:mt-4 prose-ol:my-0.5"
+    >
+      <slot />
+    </div>
   </div>
 </Layout>
 
 <style>
+  .post-wrapper {
+    a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0 0.1rem;
+      border-bottom: 2px solid var(--yellow);
+      background-image: linear-gradient(
+        120deg,
+        var(--yellow) 0%,
+        var(--yellow) 100%
+      );
+      background-repeat: no-repeat;
+      background-size: 100% 0em;
+      background-position: 0 100%;
+      transition:
+        background-size 0.2s ease-in,
+        border-width 0.05s ease-in 0.15s;
+      line-height: 1.25rem;
+    }
+
+    a:hover {
+      border-bottom: none;
+      background-size: 100% 100%;
+      padding: 0.2rem 0.1rem;
+    }
+
+    #resources {
+      border-top: 1px solid var(--lightgray);
+      padding-top: 1rem;
+    }
+  }
   .post-header-container {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
@@ -43,76 +79,5 @@ const { title, summary, date, tags, contributor } = Astro.props;
     white-space: nowrap;
     color: var(--darkgray);
     padding-top: 0.35rem;
-  }
-  .post-wrapper {
-    padding: 1rem;
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin-bottom: 0.5rem;
-      margin-top: 1rem;
-      font-weight: bold;
-    }
-    h3 {
-      font-size: 1.35rem;
-    }
-    h4 {
-      font-size: 1.2rem;
-    }
-    h6 {
-      font-size: 0.9rem;
-
-      strong,
-      a,
-      text {
-        font-weight: bold;
-        margin-bottom: 1rem;
-      }
-    }
-
-    p,
-    li {
-      font-size: 1rem;
-
-      img {
-        margin: 0.5rem 0;
-      }
-    }
-
-    ol li {
-      list-style: decimal;
-      list-style-position: inside;
-      margin-left: 1.5rem;
-
-      p {
-        display: inline;
-      }
-    }
-
-    ul li {
-      list-style: disc;
-      list-style-position: inside;
-
-      p {
-        display: inline;
-      }
-    }
-
-    pre,
-    summary {
-      margin: 0.5rem 0 1rem 0;
-    }
-
-    summary {
-      cursor: pointer;
-    }
-
-    #resources {
-      border-top: 1px solid var(--darkgray);
-      padding-top: 1rem;
-    }
   }
 </style>

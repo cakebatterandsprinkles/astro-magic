@@ -47,7 +47,6 @@
 .tagAndContributorContainer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .tagContainer {
@@ -72,7 +71,6 @@
   border-radius: 5px;
   font-family: "Roboto Mono", monospace;
   cursor: default;
-  opacity: 65%;
   white-space: nowrap;
 }
 

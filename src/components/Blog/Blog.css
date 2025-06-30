@@ -23,6 +23,8 @@
   border: 1px solid var(--lightgray);
   border-radius: 2rem;
   margin: 1.5rem 0;
+  outline: solid 1px var(--verylightgray);
+  outline-offset: -5px;
 }
 
 .tagSideWrapper > .tag {
@@ -323,7 +325,7 @@ hr {
     width: 100%;
     padding: 1rem;
     min-height: 23vh;
-    margin: 0;
+    margin: 1rem 0;
   }
 
   .blogWrapper {
