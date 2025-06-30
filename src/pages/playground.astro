@@ -2,6 +2,9 @@
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Greeting from "../components/Greeting.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import type { ProjectInfo } from "../utils/projects";
+import { projectList } from "../utils/projects";
 ---
 
 <Layout>
@@ -11,5 +14,46 @@ import Greeting from "../components/Greeting.astro";
       subtext="These are projects I’ve been tinkering with—some from learning, some just for kicks. Not everything’s sparkling clean, but hey, that’s part of the charm. Hope you find something that catches your eye!"
     />
     {/** Portfolio items */}
+    <div class="gridContainer">
+      {
+        projectList.map((project: ProjectInfo) => (
+          <div class="card">
+            <ProjectCard projectInfo={project} />
+          </div>
+        ))
+      }
+    </div>
   </div>
 </Layout>
+
+<style>
+  .gridContainer {
+    width: 100%;
+    min-height: 36vh;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .gridContainer .card {
+    width: 48%;
+  }
+
+  .card {
+    display: flex;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    height: fit-content;
+  }
+
+  @media (max-width: 1680px) {
+    .gridContainer {
+      padding-top: 0;
+    }
+    .gridContainer .card {
+      width: 100%;
+    }
+  }
+</style>

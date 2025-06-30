@@ -1,1 +1,134 @@
-<div></div>
+---
+import { Picture } from "astro:assets";
+
+const { name, demoLink, summary, gitLink, technologies, imageSrc, altText } =
+  Astro.props.projectInfo;
+---
+
+<div class="polaroidContainer">
+  <Picture
+    src={imageSrc}
+    alt={altText}
+    formats={["avif", "webp", "jpg"]}
+    class="imageContainer"
+  />
+  <div class="infoContainer">
+    <div class="cardHeader">
+      {name}
+    </div>
+    <div class="infoBox">
+      <div class="summary">{summary}</div>
+      <div class="infoWrapper">
+        <div class="title">Demo:</div>
+        <a href={demoLink} target="_blank" rel="noopener noreferrer"
+          >{demoLink}</a
+        >
+      </div>
+      {
+        gitLink && (
+          <div class="infoWrapper">
+            <div class="title">Github:</div>
+            <a href={gitLink} target="_blank" rel="noopener noreferrer">
+              {gitLink}
+            </a>
+          </div>
+        )
+      }
+      <div class="infoWrapper">
+        <div class="title">Technologies used:</div>
+        {technologies.join(", ")}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .infoBox {
+    display: none;
+  }
+
+  .polaroidContainer:hover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    .infoBox {
+      display: flex;
+      flex-direction: column;
+      background: var(--black);
+      min-width: 95%;
+      padding: 1rem;
+      font-size: 0.8rem;
+      border-radius: 0.5rem;
+    }
+  }
+  .infoContainer {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: -1.5rem;
+    min-width: 100%;
+    color: var(--snow);
+
+    a {
+      color: var(--yellow);
+      padding: 0 0.3rem;
+      border-radius: 0.5rem;
+    }
+    a:hover {
+      background: var(--indigo);
+      color: var(--snow);
+    }
+  }
+  .polaroidContainer {
+    position: relative;
+    padding: 1rem;
+    background: var(--snow);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 1rem;
+    height: fit-content;
+  }
+
+  .cardHeader {
+    font-family: var(--heading-font);
+    background-color: var(--black);
+    color: var(--snow);
+    width: fit-content;
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subHeader {
+    font-family: var(--article-font);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+
+  .infoContainer {
+    padding: 0.5rem;
+  }
+
+  .infoWrapper {
+    display: flex;
+    overflow-wrap: break-word;
+
+    .title {
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+  }
+
+  .summary {
+    border-bottom: 1px dashed var(--lightgray);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+  }
+</style>

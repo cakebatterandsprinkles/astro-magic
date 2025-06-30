@@ -6,7 +6,12 @@ const { medium, studioLink, studio, imageSrc, name, year, altText } =
 ---
 
 <div class="polaroidContainer">
-  <Picture src={imageSrc} alt={altText} class="imageContainer" />
+  <Picture
+    src={imageSrc}
+    formats={["avif", "webp", "jpg"]}
+    alt={altText}
+    class="imageContainer"
+  />
   <div class="infoContainer">
     <div class="cardHeader">
       {name}, {year}
