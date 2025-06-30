@@ -14,4 +14,9 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   trailingSlash: "never",
+  markdown: {
+    shikiConfig: {
+      theme: "plastic",
+    },
+  },
 });
