@@ -16,7 +16,8 @@ const currentPath = Astro.url.pathname;
 const isActivePath =
   currentPath === to ||
   ((currentPath === "/" || currentPath.includes("journal")) &&
-    (to === "/" || to === "/journal"));
+    (to === "/" || to === "/journal")) ||
+  (to === "/gallery" && currentPath.includes("gallery"));
 ---
 
 <a href={to} class:list={[navClass, !isActivePath || "active"]}>
