@@ -14,7 +14,6 @@ const Blog = ({ posts }: { posts: Post[] }) => {
     .map((post) => post);
 
   const searchInput = useRef<HTMLInputElement>(null);
-  const clearIcon = useRef<HTMLInputElement>(null);
   const [searchText, setSearchText] = useState<string>("");
   const [isVisible, setIsVisible] = useState(false);
   const [tags, setTags] = useState<string[]>([]);
@@ -41,7 +40,6 @@ const Blog = ({ posts }: { posts: Post[] }) => {
 
   const setCurrentTags = React.useCallback(() => {
     let allTags = posts.flatMap((post: Post) => post.tags);
-    console.log({ allTags });
     const currentTags = new Set(allTags);
     setTags(Array.from(currentTags));
   }, [posts]);
@@ -107,7 +105,6 @@ const Blog = ({ posts }: { posts: Post[] }) => {
     }
 
     if (e.key === "Enter" && searchInput.current) {
-      console.log({ posts });
       setSearchText(searchInput.current.value.toLowerCase());
       filterPosts(searchInput.current.value.toLowerCase());
       setCurrentPage(0);
