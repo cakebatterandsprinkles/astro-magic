@@ -6,8 +6,10 @@ import type { ImageMetadata } from "astro";
 export type ProjectInfo = {
   name: string;
   demoLink: string;
+  demoText?: string;
   summary: string;
   gitLink?: string;
+  gitText?: string;
   technologies: string[];
   imageSrc: ImageMetadata;
   altText: string;
@@ -17,8 +19,10 @@ export const projectList: ProjectInfo[] = [
   {
     name: "breakout",
     demoLink: "https://cakebatterandsprinkles.github.io/breakout/",
+    demoText: "breakout ★",
     summary: "Atari Breakout game remade with HTML5 Canvas API.",
     gitLink: "https://github.com/cakebatterandsprinkles/breakout",
+    gitText: "cakebatterandsprinkles/breakout",
     technologies: ["HTML5 Canvas API"],
     imageSrc: breakoutImage,
     altText: "Screenshot of Breakout game",
@@ -27,8 +31,9 @@ export const projectList: ProjectInfo[] = [
     name: "SmartMonke",
     demoLink: "https://smart.innermonke.com",
     summary:
-      "A simple calculator for people who aren't sure if they want to buy or lease a car or rent or buy a house.",
+      "A simple calculator to compare buying vs. leasing a car or renting vs. buying a home.",
     gitLink: "https://github.com/cakebatterandsprinkles/smart-monke",
+    gitText: "cakebatterandsprinkles/smart-monke",
     technologies: ["React", "TypeScript"],
     imageSrc: smartMonke,
     altText: "image of an open road for the SmartMonke project",

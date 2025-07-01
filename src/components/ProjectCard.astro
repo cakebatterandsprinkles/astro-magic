@@ -1,8 +1,17 @@
 ---
 import { Picture } from "astro:assets";
 
-const { name, demoLink, summary, gitLink, technologies, imageSrc, altText } =
-  Astro.props.projectInfo;
+const {
+  name,
+  demoLink,
+  demoText,
+  summary,
+  gitLink,
+  gitText,
+  technologies,
+  imageSrc,
+  altText,
+} = Astro.props.projectInfo;
 ---
 
 <div class="polaroidContainer">
@@ -21,7 +30,7 @@ const { name, demoLink, summary, gitLink, technologies, imageSrc, altText } =
       <div class="infoWrapper">
         <div class="title">Demo:</div>
         <a href={demoLink} target="_blank" rel="noopener noreferrer"
-          >{demoLink}</a
+          >{demoText ?? demoLink}</a
         >
       </div>
       {
@@ -29,7 +38,7 @@ const { name, demoLink, summary, gitLink, technologies, imageSrc, altText } =
           <div class="infoWrapper">
             <div class="title">Github:</div>
             <a href={gitLink} target="_blank" rel="noopener noreferrer">
-              {gitLink}
+              {gitText ?? gitLink}
             </a>
           </div>
         )
@@ -56,10 +65,15 @@ const { name, demoLink, summary, gitLink, technologies, imageSrc, altText } =
       display: flex;
       flex-direction: column;
       background: var(--black);
-      min-width: 95%;
+      border: 5px solid var(--yellow);
+      background: hsl(0, 0%, 20%);
+      outline: 5px solid var(--candypink);
+      box-shadow: 0 0 0 10px var(--grassgreen);
+      min-width: 90%;
       padding: 1rem;
       font-size: 0.8rem;
       border-radius: 0.5rem;
+      margin-top: 0.5rem;
     }
   }
   .infoContainer {
@@ -130,5 +144,28 @@ const { name, demoLink, summary, gitLink, technologies, imageSrc, altText } =
     border-bottom: 1px dashed var(--lightgray);
     margin-bottom: 0.5rem;
     padding-bottom: 0.25rem;
+  }
+
+  @media (max-width: 450px) {
+    .polaroidContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .infoBox {
+      display: flex;
+      flex-direction: column;
+      background: var(--black);
+      border: 5px solid var(--yellow);
+      background: hsl(0, 0%, 20%);
+      outline: 5px solid var(--candypink);
+      box-shadow: 0 0 0 10px var(--grassgreen);
+      min-width: 90%;
+      padding: 1rem;
+      font-size: 0.8rem;
+      border-radius: 0.5rem;
+      margin-top: 0.5rem;
+    }
   }
 </style>
