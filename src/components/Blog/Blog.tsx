@@ -233,9 +233,11 @@ const Blog = ({ posts }: { posts: Post[] }) => {
         </div>
       </div>
       <div ref={blogContainerRef}>
-        {filteredPosts.map((post: Post) => (
-          <JournalCard post={post} key={post.title} />
-        ))}
+        {filteredPosts
+          .slice(currentPage * pageSize, (currentPage + 1) * pageSize)
+          .map((post: Post) => (
+            <JournalCard post={post} key={post.title} />
+          ))}
       </div>
 
       {pageCount > 1
