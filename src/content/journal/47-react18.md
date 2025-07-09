@@ -10,29 +10,25 @@ As the [React 18 version alpha is ready-to-go](https://github.com/reactwg/react-
 
 Before we move on to the new features of React 18, let's understand some concepts that you might not be familiar with, such as **Server Side Rendering**, **Suspense**, and **Hydration**. If you already know what these are, you can directly go and read the changes section.
 
-1. [Concepts you need to know to understand the changes](#concepts-you-need-to-know)
-
-   - [Server Side Rendering (SSR)](#server-side-rendering)
-   - [Hydration](#hydration)
-   - [Suspense](#suspense)
-
-2. [Changes in React 18](#changes-in-react-18)
-
-   - [The New Root API vs. the Legacy Root API](#the-new-root-api-vs-the-legacy-root-api)
-   - [Out-of-the-box improvements](#out-of-the-box-improvements)
-     - [Automatic batching](#automatic-batching)
-     - [SSR Support for Suspense](#ssr-support-for-suspense)
-     - [Allow components to render undefined](#allow-components-to-render-undefined)
-     - [Uncaptured Suspense](#uncaptured-suspense)
-     - [null or undefined Suspense fallback](#null-or-undefined-suspense-fallback)
-   - [Concurrent Features](#concurrent-features)
-     - [startTransition](#startTransition)
-     - [useDeferredValue](#useDeferredValue)
-     - [\<SuspenseList\>](#<SuspenseList>)
-     - [Streaming HTML with selective hydration](#streaming-html-with-selective-hydration)
-
-3. [Final words](#final-words)
-4. [Resources](#resources)
+- [Concepts you need to know to understand the changes](#concepts-you-need-to-know-to-understand-the-changes)
+  - [Server Side Rendering](#server-side-rendering)
+  - [Hydration](#hydration)
+  - [Suspense](#suspense)
+- [Changes in React 18](#changes-in-react-18)
+  - [The New Root API vs. the Legacy Root API](#the-new-root-api-vs-the-legacy-root-api)
+  - [Out-of-the-box improvements](#out-of-the-box-improvements)
+    - [► Automatic batching](#-automatic-batching)
+    - [► Allow components to render undefined](#-allow-components-to-render-undefined)
+    - [► SSR Support for Suspense](#-ssr-support-for-suspense)
+    - [► Uncaptured Suspense](#-uncaptured-suspense)
+    - [► null or undefined Suspense Fallback](#-null-or-undefined-suspense-fallback)
+- [Concurrent Features](#concurrent-features)
+  - [► startTransition](#-starttransition)
+  - [► useDeferredValue](#-usedeferredvalue)
+  - [► \<SuspenseList\>](#-suspenselist)
+  - [► Streaming HTML with selective hydration](#-streaming-html-with-selective-hydration)
+- [Final words:](#final-words)
+- [Resources:](#resources)
 
 <div id="concepts-you-need-to-know"></div>
 
@@ -71,27 +67,27 @@ Although it looks like a neat magic trick, there are a couple of bottlenecks whe
 React apps are created by attaching the root element (the uppermost component) of the application to the DOM. If you're using a framework that gives you a starter project, you can find the link between the `index.html` and `App.jsx` in the `index.js` document, which will look something like this:
 
 ```jsx
-import * as ReactDOM from "react-dom"
-import App from "App"
+import * as ReactDOM from "react-dom";
+import App from "App";
 
 // The <App/> component is directly attached to a DOM element with the id of 'app':
-ReactDOM.render(<App tab="home" />, document.getElementById("app"))
+ReactDOM.render(<App tab="home" />, document.getElementById("app"));
 ```
 
 The New Root API uses `ReactDOM.createRoot()`, creates a new root element, and React app is rendered in it:
 
 ```jsx
-import * as ReactDOM from "react-dom"
-import App from "App"
+import * as ReactDOM from "react-dom";
+import App from "App";
 
 // Create a root by using ReactDOM.createRoot():
-const root = ReactDOM.createRoot(document.getElementById("app"))
+const root = ReactDOM.createRoot(document.getElementById("app"));
 
 // Render the main <App/> element to the root:
-root.render(<App tab="home" />)
+root.render(<App tab="home" />);
 
 // If there's an update, there's no need to pass the initial DOM node again:
-root.render(<App tab="profile" />)
+root.render(<App tab="profile" />);
 ```
 
 But why does it matter? Most of its benefits are under the hood. To be able to use the out-of-the-box improvements mentioned below, you need to switch the Legacy Root API to New Root API in your projects.
@@ -114,30 +110,30 @@ Batching is a great mechanism that protects us from unnecessary UI re-renders, b
 function handleClick() {
   // React 17: Re-rendering happens after both of the states are updated. This is called batching.
   // This is also the default behavior of React 18.
-  setIsBirthday(b => !b)
-  setAge(a => a + 1)
+  setIsBirthday((b) => !b);
+  setAge((a) => a + 1);
 }
 
 // For the following code blocks, React 18 does automatic batching, but React 17 doesn't.
 // 1. Promises:
 function handleClick() {
   fetchSomething().then(() => {
-    setIsBirthday(b => !b)
-    setAge(a => a + 1)
-  })
+    setIsBirthday((b) => !b);
+    setAge((a) => a + 1);
+  });
 }
 
 // 2. Async code:
 setInterval(() => {
-  setIsBirthday(b => !b)
-  setAge(a => a + 1)
-}, 5000)
+  setIsBirthday((b) => !b);
+  setAge((a) => a + 1);
+}, 5000);
 
 // 3. Native event handlers:
 element.addEventListener("click", () => {
-  setIsBirthday(b => !b)
-  setAge(a => a + 1)
-})
+  setIsBirthday((b) => !b);
+  setAge((a) => a + 1);
+});
 ```
 
 If you need to, there is a way to opt-out of automatic batching via using `ReactDOM.flushSync()`, but frequent usage of it is not recommended by the React Working Group (RWG).
@@ -185,16 +181,16 @@ So although the `createRoot` API changes the whole app to what they call a **con
 Previously, React had one very important rule: nothing could interfere with renders. Once the component state was changed and the re-render was triggered, there was no way to stop it, and until the component was re-rendered, the page became unresponsive. With the new update, each state update is classified as one of these two categories: it is either an **urgent update** or a **transition update** (transition, for short). Urgent updates are actions which the user intuitively expects to respond in a heartbeat, like a mouse click or a keypress. The transition updates are actions that a little delay is acceptable and at many times expected, like a search query. The `startTransition` API marks the setState calls inside it as **transitions** , meaning they are **interruptable**. Transition updates also run synchronously, but the UI is not blocked when they are running.
 
 ```javascript
-import { startTransition } from "react"
+import { startTransition } from "react";
 
 // Urgent update that shows whatever is typed by the user:
-setInputValue(input)
+setInputValue(input);
 
 // Transition updates are marked with startTransition:
 startTransition(() => {
   // A non-urgent, interruptable update of the search query:
-  setSearchQuery(input)
-})
+  setSearchQuery(input);
+});
 ```
 
 The example above is from the [reactwg GitHub discussion page](https://github.com/reactwg/react-18/discussions/41). If the `setSearchQuery(input)` wasn't marked as a transition update, the UI would be locked after each input change. Now that it is marked as non-urgent, the user can search for something and change opinions and decide to navigate to another page before the UI is updated according to the input change, and doesn't have to wait for a UI update that is not of interest.
@@ -202,12 +198,12 @@ The example above is from the [reactwg GitHub discussion page](https://github.co
 You can even track the pending state of a transition update and show the user a loading UI if you want to, using the `useTransition` hook:
 
 ```javascript
-import { useTransition } from "react"
-const [isPending, startTransition] = useTransition()
+import { useTransition } from "react";
+const [isPending, startTransition] = useTransition();
 
 // For example, you can show a spinner when it's pending:
 {
-  isPending ? <Spinner /> : null
+  isPending ? <Spinner /> : null;
 }
 ```
 
@@ -220,11 +216,11 @@ Check out [this](https://github.com/reactwg/react-18/discussions/46#discussionco
 The `useDeferredValue` hook helps you defer updating some part of the UI by a specified time period while keeping the page responsive. You can also give it an optional timeout. React will try to update the deferred value as soon as it can. If it fails to do so within the given timeout period, it will then force the update, blocking the UI in the process. In other words, the deferred value is updated via a **transition update** rather than an **urgent update**, keeping your UI responsive in the process.
 
 ```javascript
-import { useDeferredValue } from "react"
+import { useDeferredValue } from "react";
 
 const deferredValue = useDeferredValue(value, {
   timeoutMs: 5000,
-})
+});
 ```
 
 Check out the [React Docs](https://reactjs.org/docs/concurrent-mode-patterns.html#deferring-a-value) for further information and examples.
@@ -236,18 +232,21 @@ Check out the [React Docs](https://reactjs.org/docs/concurrent-mode-patterns.htm
 SuspenseList lets you coordinate the appearing order of the content of Suspense nodes of the subtree it wraps, even if the data arrives in a different order. Normally, if you have multiple sibling Suspense boundaries, they will resolve whenever they can. However, you might want to load your components in a particular order, no matter in which order they resolve themselves.
 
 ```javascript
-import { Suspense, SuspenseList } from "react"
-;<SuspenseList revealOrder="forwards">
-  <Suspense fallback="Loading first item...">
-    <FirstItem />
-  </Suspense>
-  <Suspense fallback="Loading second item...">
-    <SecondItem />
-  </Suspense>
-  <Suspense fallback="Loading third item...">
-    <ThirdItem />
-  </Suspense>
-</SuspenseList>
+import { Suspense, SuspenseList } from "react";
+
+return (
+  <SuspenseList revealOrder="forwards">
+    <Suspense fallback="Loading first item...">
+      <FirstItem />
+    </Suspense>
+    <Suspense fallback="Loading second item...">
+      <SecondItem />
+    </Suspense>
+    <Suspense fallback="Loading third item...">
+      <ThirdItem />
+    </Suspense>
+  </SuspenseList>
+);
 ```
 
 In the example above, even if the third item is loaded first, it will render `Loading third item...`, until the first item is loaded. When the first item is loaded, the first item is rendered, along with the fallback for the second and third. Only when the second item is loaded all three can be rendered.

@@ -46,7 +46,7 @@ WebHooks are also referred to as reverse APIs or web callbacks. But they're diff
 - Setting up a CI/CD pipeline to deploy a website when the content is changed
 - Updating the accounting software when the invoices are paid by the customers.
 
-  Configuring a WebHook will differ according to the service you're using. So better get into the docs if you're planning to use one!
+Configuring a WebHook will differ according to the service you're using. So better get into the docs if you're planning to use one!
 
 #### But are they secure?
 

@@ -547,10 +547,10 @@ Now, let's talk about all primitive values one by one:
 
 - **5. Undefined:** If a variable is declared and no value is assigned to it, its value is _undefined_. This is a value, but it is not a meaningful one as it carries no information. In JS, operations return the value of undefined, if they are not supposed to return some meaningful value.
 
-```javascript
-let name;
-typeof name; // ↪ undefined
-```
+  ```javascript
+  let name;
+  typeof name; // ↪ undefined
+  ```
 
 <div id="null"></div>
 
