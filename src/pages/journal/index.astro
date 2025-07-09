@@ -4,7 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import Greeting from "../../components/Greeting.astro";
 import Blog from "../../components/Blog/Blog.tsx";
 const allPosts = Object.values(
-  import.meta.glob("../../content/journal/*.md", { eager: true })
+  import.meta.glob("../../content/journal/*.md*", { eager: true })
 ).reverse();
 
 export interface Post {
@@ -17,7 +17,7 @@ export interface Post {
 }
 ---
 
-<Layout>
+<Layout pageTitle="Journal">
   <div>
     <Greeting
       title="Journal"

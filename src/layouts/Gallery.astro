@@ -10,7 +10,7 @@ import type { GalleryData } from "../utils/artworks";
 const { imageList } = Astro.props;
 ---
 
-<Layout>
+<Layout pageTitle="Gallery">
   <div>
     <Greeting
       title="Gallery"
@@ -22,7 +22,7 @@ const { imageList } = Astro.props;
     <div class="gridContainer">
       {
         imageList
-          .sort((a: GalleryData, b: GalleryData) => +a.year - +b.year)
+          .sort((a: GalleryData, b: GalleryData) => +b.year - +a.year)
           .map((w: GalleryData) => (
             <div class="card">
               <Polaroid image={w} />

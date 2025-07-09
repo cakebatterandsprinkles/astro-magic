@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import { SITE_TITLE } from "../consts";
 import type { ImageMetadata } from "astro";
 interface Props {
   title: string;
@@ -10,7 +9,7 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -21,7 +20,7 @@ const { title, description, image } = Astro.props;
 <link
   rel="alternate"
   type="application/rss+xml"
-  title={SITE_TITLE}
+  title={title}
   href={new URL("rss.xml", Astro.site)}
 />
 <meta name="generator" content={Astro.generator} />
@@ -47,14 +46,14 @@ const { title, description, image } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image?.src ?? "", Astro.url)} />
+<meta property="og:image" content="/gallery/digital_art/me_in_color.png" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image?.src ?? "", Astro.url)} />
+<meta property="twitter:image" content="/gallery/digital_art/me_in_color.png" />
 
 <!-- IconifyIcon web component -->
 <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"

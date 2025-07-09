@@ -106,7 +106,9 @@ h5 {
 }
 strong,
 b {
-  font-weight: 700;
+  color: var(--black);
+  display: inline-flex;
+  align-items: center;
 }
 a {
   color: var(--cornflowerblue);
@@ -133,6 +135,7 @@ code {
   padding: 2px 5px;
   background-color: rgb(var(--lightgray));
   border-radius: 2px;
+  color: var(--black);
 }
 pre {
   padding: 1.5em;
@@ -147,10 +150,7 @@ blockquote {
   margin: 0px;
   font-size: 1.333em;
 }
-hr {
-  border: none;
-  border-top: 1px solid rgb(var(--lightgray));
-}
+
 @media (max-width: 720px) {
   body {
     font-size: 18px;
