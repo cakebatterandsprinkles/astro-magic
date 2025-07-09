@@ -15,6 +15,8 @@ import Serene from "../../public/gallery/digital_art/image_0274.png";
 import RoadSigns from "../../public/gallery/digital_art/image_0276.png";
 import Mendokusai from "../../public/gallery/digital_art/Mendokusai.jpg";
 import NeuronRiot from "../../public/gallery/digital_art/IMG_0371.png";
+import Snugglelights from "../../public/gallery/digital_art/creatures_of_night.png";
+import SymmetryIsOverrated from "../../public/gallery/digital_art/symmetry.png";
 import OnFire from "../../public/main/img404.jpg";
 import SelfPortrait from "../../public/gallery/digital_art/me_in_color.png";
 import SocialDistance from "../../public/gallery/digital_art/IMG_0277.png";
@@ -32,6 +34,16 @@ import Lion from "../../public/gallery/clay/lionmask_yagmur.png";
 import Warrior from "../../public/gallery/clay/warrior_yagmur.png";
 import Pagoda from "../../public/gallery/clay/pagoda_yagmur.png";
 import Fragile from "../../public/gallery/clay/fragile_yagmur.png";
+import Fish from "../../public/gallery/clay/fish.jpg";
+import SlugRiders from "../../public/gallery/clay/slug_riders.jpg";
+import FireMonsters from "../../public/gallery/clay/monsters.jpg";
+import Amanto from "../../public/gallery/clay/amanto.jpg";
+import ForestMask from "../../public/gallery/clay/forest_mask.jpg";
+import PumpkinMan from "../../public/gallery/clay/pumpkin_man.jpg";
+import Suzume from "../../public/gallery/clay/suzume.jpg";
+import Froggy from "../../public/gallery/clay/froggy.jpg";
+import Birdie from "../../public/gallery/clay/birdie.jpg";
+import Machinarium from "../../public/gallery/clay/machinarium.jpg";
 import AstronautLinocut1 from "../../public/gallery/linocut/astronaut.png";
 import AstronautLinocut2 from "../../public/gallery/linocut/astronaut2.png";
 import Spidey from "../../public/gallery/linocut/spidey.png";
@@ -65,6 +77,22 @@ const inkWork: GalleryData[] = [
 ];
 
 const digitalWork: GalleryData[] = [
+  {
+    name: "Axis of Nature",
+    year: "2023",
+    medium: "Digital art made by using Procreate.",
+    imageSrc: SymmetryIsOverrated,
+    altText:
+      "digital illustration of kinda symmetrical layout of various animal illustrations",
+  },
+  {
+    name: "Mochi Mochi Mingle",
+    year: "2022",
+    medium: "Digital art made by using Procreate.",
+    imageSrc: Snugglelights,
+    altText:
+      "digital illustration of creatures hanging around Japanese lanterns",
+  },
   {
     name: "Business Natural",
     year: "2022",
@@ -199,12 +227,108 @@ const digitalWork: GalleryData[] = [
 
 const clayWork: GalleryData[] = [
   {
+    name: "Josef & Bird",
+    year: "2024",
+    medium: "Cone 6 clay & acrylic paint.",
+    studio: "Orlando Pottery Studio",
+    imageSrc: Machinarium,
+    altText: "Machinarium figures made from clay",
+    studioLink:
+      "https://www.orlando.gov/Community-Programs-Events/Pottery-Studio",
+  },
+  {
+    name: "Sir Chirps-a-Lot",
+    year: "2024",
+    medium: "Cone 6 clay & glaze.",
+    studio: "Orlando Pottery Studio",
+    imageSrc: Birdie,
+    altText: "Bird figure made from clay",
+    studioLink:
+      "https://www.orlando.gov/Community-Programs-Events/Pottery-Studio",
+  },
+  {
+    name: "Suzume",
+    year: "2024",
+    medium: "Cone 6 clay & glaze.",
+    studio: "Orlando Pottery Studio",
+    imageSrc: Suzume,
+    altText: "Suzume figure made from clay",
+    studioLink:
+      "https://www.orlando.gov/Community-Programs-Events/Pottery-Studio",
+  },
+  {
+    name: "Do Not Disturb: Frog Mode",
+    year: "2024",
+    medium: "Cone 6 clay & glaze.",
+    studio: "Orlando Pottery Studio",
+    imageSrc: Froggy,
+    altText: "Small frog figure made from clay",
+    studioLink:
+      "https://www.orlando.gov/Community-Programs-Events/Pottery-Studio",
+  },
+  {
+    name: "Pumpkin with a Pecking Problem",
+    year: "2024",
+    medium: "Cone 6 clay & underglaze.",
+    studio: "Orlando Pottery Studio",
+    imageSrc: PumpkinMan,
+    altText: "Small frog figure made from clay",
+    studioLink:
+      "https://www.orlando.gov/Community-Programs-Events/Pottery-Studio",
+  },
+  {
+    name: "Mask of the Forestbound",
+    year: "2023",
+    medium: "Cone 6 clay & acrylic paint.",
+    studio: "Crealde School of Art",
+    imageSrc: ForestMask,
+    altText: "Forest mask statues made from clay",
+    studioLink: "https://crealde.org/",
+  },
+  {
+    name: "Amanto",
+    year: "2022",
+    medium: "Cone 6 clay & underglaze.",
+    studio: "Crealde School of Art",
+    imageSrc: Amanto,
+    altText: "Monster fighter statues made from clay",
+    studioLink: "https://crealde.org/",
+  },
+  {
+    name: "Burnin' with Vision",
+    year: "2022",
+    medium: "Cone 6 clay & underglaze.",
+    studio: "Crealde School of Art",
+    imageSrc: FireMonsters,
+    altText: "Monster statues made from clay",
+    studioLink: "https://crealde.org/",
+  },
+  {
+    name: "Feeling sluggish",
+    year: "2022",
+    medium: "Cone 6 clay & underglaze.",
+    studio: "Crealde School of Art",
+    imageSrc: SlugRiders,
+    altText: "Monster statues riding slugs made from clay",
+    studioLink: "https://crealde.org/",
+  },
+  {
+    name: "Walking Fish",
+    year: "2021",
+    medium: "Cone 6 clay & underglaze.",
+    studio: "Crealde School of Art",
+    imageSrc: Fish,
+    altText: "Fish statue made from clay",
+    studioLink: "https://crealde.org/",
+  },
+  {
     name: "Jack-o'-lantern",
     year: "2021",
     medium: "Cone 6 clay & glaze.",
     studio: "Crealde School of Art",
     imageSrc: Pumpkin,
     altText: "Jack-o'-lantern made from clay",
+    studioLink: "https://crealde.org/",
   },
   {
     name: "Calcifer",
@@ -213,6 +337,7 @@ const clayWork: GalleryData[] = [
     studio: "Crealde School of Art",
     imageSrc: Calcifer,
     altText: "Clay mask of Calcifer",
+    studioLink: "https://crealde.org/",
   },
   {
     name: "Kitsune",
@@ -221,6 +346,7 @@ const clayWork: GalleryData[] = [
     studio: "Crealde School of Art",
     imageSrc: Kitsune,
     altText: "Clay mask of kitsune",
+    studioLink: "https://crealde.org/",
   },
   {
     name: "Kaonashi",
@@ -229,6 +355,7 @@ const clayWork: GalleryData[] = [
     studio: "Crealde School of Art",
     imageSrc: Kaonashi,
     altText: "Clay mask of kaonashi",
+    studioLink: "https://crealde.org/",
   },
   {
     name: "Wolf",
@@ -237,6 +364,7 @@ const clayWork: GalleryData[] = [
     studio: "Crealde School of Art",
     imageSrc: Wolf,
     altText: "Clay wolf mask",
+    studioLink: "https://crealde.org/",
   },
   {
     name: "Zelda Mask",
@@ -245,6 +373,7 @@ const clayWork: GalleryData[] = [
     studio: "Crealde School of Art",
     imageSrc: ZeldaMask,
     altText: "Clay zelda mask",
+    studioLink: "https://crealde.org/",
   },
   {
     name: "Standing Tall",
@@ -253,6 +382,7 @@ const clayWork: GalleryData[] = [
     studio: "Crealde School of Art",
     imageSrc: StandingTallSculpture,
     altText: "Small clay sculpture",
+    studioLink: "https://crealde.org/",
   },
   {
     name: "Sandman and cardinal",
@@ -261,6 +391,7 @@ const clayWork: GalleryData[] = [
     studio: "Crealde School of Art",
     imageSrc: Sandman,
     altText: "Small clay sculpture",
+    studioLink: "https://crealde.org/",
   },
   {
     name: "Kindred: Half lamb, half wolf",
@@ -269,6 +400,7 @@ const clayWork: GalleryData[] = [
     studio: "Crealde School of Art",
     imageSrc: Kindred,
     altText: "Small clay sculpture of a Kindred mask",
+    studioLink: "https://crealde.org/",
   },
   {
     name: "Happy Pupper",
@@ -277,6 +409,7 @@ const clayWork: GalleryData[] = [
     studio: "Crealde School of Art",
     imageSrc: HappyPupper,
     altText: "Small clay sculpture of a dog",
+    studioLink: "https://crealde.org/",
   },
   {
     name: "Lion",
@@ -285,6 +418,7 @@ const clayWork: GalleryData[] = [
     studio: "Crealde School of Art",
     imageSrc: Lion,
     altText: "Clay lion mask",
+    studioLink: "https://crealde.org/",
   },
   {
     name: "Warrior",
@@ -293,6 +427,7 @@ const clayWork: GalleryData[] = [
     studio: "Crealde School of Art",
     imageSrc: Warrior,
     altText: "Small sculpture of a tiny tribal warrior creature",
+    studioLink: "https://crealde.org/",
   },
   {
     name: "Pagoda",
@@ -301,6 +436,7 @@ const clayWork: GalleryData[] = [
     studio: "Crealde School of Art",
     imageSrc: Pagoda,
     altText: "A red and black pagoda with two stores",
+    studioLink: "https://crealde.org/",
   },
   {
     name: "Fragile",
@@ -309,6 +445,7 @@ const clayWork: GalleryData[] = [
     studio: "Crealde School of Art",
     imageSrc: Fragile,
     altText: "Small sculpture of a tiny tribal warrior creatures",
+    studioLink: "https://crealde.org/",
   },
 ];
 
