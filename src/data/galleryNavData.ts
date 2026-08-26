@@ -2,15 +2,6 @@ import type { NavItem } from "./mainNavData";
 
 const galleryNavData: NavItem[] = [
   {
-    to: "/gallery/digital",
-    title: "Digital",
-    navClass: "nav-link",
-    id: "digital-icon",
-    icon: "meteor-icons:angles-right",
-    iconClass: "icon",
-    ariaLabel: "Link to the gallery of digital arts page",
-  },
-  {
     to: "/gallery/clay",
     title: "Clay",
     navClass: "nav-link",
@@ -18,6 +9,15 @@ const galleryNavData: NavItem[] = [
     icon: "meteor-icons:angles-right",
     iconClass: "icon",
     ariaLabel: "Link to the gallery of clay arts page",
+  },
+  {
+    to: "/gallery/digital",
+    title: "Digital",
+    navClass: "nav-link",
+    id: "digital-icon",
+    icon: "meteor-icons:angles-right",
+    iconClass: "icon",
+    ariaLabel: "Link to the gallery of digital arts page",
   },
   {
     to: "/gallery/ink",

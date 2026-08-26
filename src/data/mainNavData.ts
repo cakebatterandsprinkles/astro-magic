@@ -19,7 +19,7 @@ const mainNavData: NavItem[] = [
     ariaLabel: "Link to the about me page",
   },
   {
-    to: "/",
+    to: "/journal",
     title: "Journal",
     navClass: "nav-link",
     icon: "wi:moon-alt-new",
