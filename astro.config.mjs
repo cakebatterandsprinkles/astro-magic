@@ -5,6 +5,7 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
 import icon from "astro-icon";
+import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,10 +14,14 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  image: {
+    layout: "constrained",
+  },
   trailingSlash: "never",
   markdown: {
     shikiConfig: {
       theme: "plastic",
     },
   },
+  adapter: netlify({ devFeatures: false }),
 });

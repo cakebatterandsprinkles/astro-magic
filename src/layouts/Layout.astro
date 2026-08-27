@@ -32,6 +32,7 @@ const { pageTitle } = Astro.props;
           src={Castle}
           alt="Castle image"
           class="max-h-screen min-h-screen w-auto sticky top-0 hidden xl:block"
+          sizes="50vw"
           usemap="#castlemap"
         />
         <Tooltip
@@ -58,6 +59,7 @@ const { pageTitle } = Astro.props;
               src={Cockatiel}
               alt="A normal cockatiel behaviour of pressing a button it shouldn't be pressing"
               class="lg:hidden cockatiel"
+              sizes="100vw"
               usemap="#cockatielmap"
             />
             <map name="cockatielmap" class="cursor-pointer">
@@ -84,6 +86,7 @@ const { pageTitle } = Astro.props;
           src={Dragon}
           alt="Dragon image"
           class="max-h-screen min-h-screen w-auto sticky top-0 hidden lg:block"
+          sizes="50vw"
         />
       </div>
     </div>
