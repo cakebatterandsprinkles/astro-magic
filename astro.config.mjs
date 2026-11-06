@@ -9,7 +9,7 @@ import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://example.com",
+  site: "https://yagmurtas.com",
   integrations: [mdx(), sitemap(), react(), icon()],
   vite: {
     plugins: [tailwindcss()],
