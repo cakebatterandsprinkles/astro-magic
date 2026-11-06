@@ -46,7 +46,7 @@ If you want to replicate the code in the following examples, I suggest you use [
 
 ### TypeScript Type System
 
-JavaScript has **dynamic types**, which means, you can assign different types of values to a single variable. If you're not familiar with JavaScript types, munch on [this article](https://yagmurcetintas.com/journal/javascript-introduction-to-data-types) first.
+JavaScript has **dynamic types**, which means, you can assign different types of values to a single variable. If you're not familiar with JavaScript types, munch on [this article](https://yagmurtas.com/journal/javascript-introduction-to-data-types) first.
 
 Simply put, types are labels that define the certain properties and methods a value has. In TypeScript, there is a supertype called **any**, which encompasses all the data types available. A variable with the type **any** can literally be anything. If a variable is of type any, it means you are not using type checking on it, therefore the variable becomes dynamically typed. There are also **built-in types** which are the classic primitive (string, number, boolean, undefined, null, bigInt, symbol, void) and the reference types (Object, Array, Function, Date). The void type is TypeScript specific and does not exist in JavaScript. In TypeScript, there are also **user-defined types** which are enums, classes, arrays, and interfaces, created by and for the developer for specific needs.
 
@@ -226,7 +226,7 @@ pets.map(
   }) => {
     console.log(`${pet.nickname} is ${pet.age} years old.`);
     pet.shout(`${pet.message}!!!!`);
-  }
+  },
 );
 
 // When you destructure, each property is their own variable and you can use them directly with their variable names:
@@ -244,7 +244,7 @@ pets.map(
   }) => {
     console.log(`${nickname} is ${age} years old.`);
     shout(`${message}!!!!`);
-  }
+  },
 );
 ```
 
@@ -350,12 +350,12 @@ const printInfo = (car: {
     ? console.log(
         `A ${car.year} model ${
           car.manufacturer
-        } is available. Label: ${car.label()}`
+        } is available. Label: ${car.label()}`,
       )
     : console.log(
         `The ${car.year} model ${
           car.manufacturer
-        } is not available. Label: ${car.label()}`
+        } is not available. Label: ${car.label()}`,
       );
 };
 
@@ -387,12 +387,12 @@ const printInfo = (car: Car): void => {
     ? console.log(
         `A ${car.year} model ${
           car.manufacturer
-        } is available. Label: ${car.label()}`
+        } is available. Label: ${car.label()}`,
       )
     : console.log(
         `The ${car.year} model ${
           car.manufacturer
-        } is not available. Label: ${car.label()}`
+        } is not available. Label: ${car.label()}`,
       );
 };
 
@@ -563,7 +563,7 @@ console.log(baker2.getCake()); // Prints: "Carrot Cake"
 
 Classes define the properties and methods of objects and can be referred to as "blueprints" for objects. Classes in TypeScript are very much similar to the JavaScript classes with a few differences, such as access modifiers and abstract classes.
 
-If you know absolutely nothing about the class concept, read [this article](https://yagmurcetintas.com/journal/introduction-to-object-oriented-programming) first. If you do already know, the example below is there to remind a few simple things:
+If you know absolutely nothing about the class concept, read [this article](https://yagmurtas.com/journal/introduction-to-object-oriented-programming) first. If you do already know, the example below is there to remind a few simple things:
 
 ```typescript
 // class names conventionally start with a capital letter:
@@ -625,7 +625,7 @@ class Cone extends GeometricShape {
     return `Name: ${this.name}, Shape: Cone, Radius: ${this.radius}, Height: ${
       this.height
     }, Surface Area: ${this.calculateSurfaceArea().toFixed(
-      2
+      2,
     )}, Volume: ${this.calculateVolume().toFixed(2)}`;
   }
 
@@ -664,7 +664,7 @@ class Person {
   // The arguments can be specified when the instance is being created:
   constructor(
     protected height: number,
-    public weight: number
+    public weight: number,
   ) {}
   public readonly heightUnit: string = "centimeters";
   public readonly weightUnit: string = "kilograms";
@@ -694,7 +694,7 @@ class Ninja extends Person {
   // A child constructor can have a separate constructor that does a different thing from its parent:
   constructor(
     public favColor: string,
-    weight: number
+    weight: number,
   ) {
     // To call the parent class' constructor, we use another special function called 'super' and supply it with the arguments needed:
     super(180, weight);
@@ -848,14 +848,14 @@ function displayInfo<T, U>(
   name: T,
   age: U,
   occupation: T,
-  hobbies: string[]
+  hobbies: string[],
 ): void {
   const lastHobby: string | undefined = hobbies.length ? hobbies.pop() : "";
   hobbies.length
     ? console.log(
         `${name}, the ${age} year old ${occupation}, likes ${hobbies.join(
-          ", "
-        )}, and ${lastHobby} in her free time.`
+          ", ",
+        )}, and ${lastHobby} in her free time.`,
       )
     : console.log(`${name} is a ${age} year old ${occupation}.`);
 }
@@ -870,7 +870,7 @@ displayInfo<string, string>(
   "Jamie",
   "never-ask-a-lady-her-age",
   "fashion designer",
-  ["running", "baking", "gardening"]
+  ["running", "baking", "gardening"],
 ); // Prints: "Jamie, the never-ask-a-lady-her-age year old fashion designer, likes running, baking, and gardening in her free time."
 ```
 
@@ -976,7 +976,7 @@ namespace StringUtilities {
 // you can use object literal notation when you're calling:
 console.log(StringUtilities.capitalize("hello world")); // Prints: "Hello world"
 console.log(
-  StringUtilities.selectRandomLetterFromString("why does it always rain on me")
+  StringUtilities.selectRandomLetterFromString("why does it always rain on me"),
 ); // Prints random letter
 ```
 

@@ -33,22 +33,22 @@ Now let's take action, and create a redux store and connect it to our react appl
 
 ```jsx
 // index.js
-import React from "react"
-import ReactDOM from "react-dom"
-import { createStore } from "redux"
-import App from "./App"
-import reducer from "./store/reducer"
+import React from "react";
+import ReactDOM from "react-dom";
+import { createStore } from "redux";
+import App from "./App";
+import reducer from "./store/reducer";
 
-const store = createStore(reducer)
+const store = createStore(reducer);
 
-ReactDOM.render(<App />, document.getElementById("root"))
+ReactDOM.render(<App />, document.getElementById("root"));
 
 // Now we can create our reducer function in a separate store folder in a reducer.js file (like we used in import statement):
 
 const initialState = {
   counter: 0,
   name: "Snowbean",
-}
+};
 
 // The reducer takes an initial state as a default value, and the action as the second, and it should return the updated state:
 const reducer = (state = initialState, action) => {
@@ -56,44 +56,44 @@ const reducer = (state = initialState, action) => {
     return {
       ...state,
       counter: state.counter + 1,
-    }
+    };
   } else if (action.type === "DECREMENT") {
     return {
       ...state,
       counter: state.counter - 1,
-    }
+    };
   } else if (action.type === "ADD_PAYLOAD") {
     return {
       ...state,
       counter: state.counter + action.payload.value,
-    }
+    };
   }
-  return state
-}
+  return state;
+};
 
-export default reducer
+export default reducer;
 ```
 
 Now to connect our redux store to our react app, we install the `react-redux` package: `npm i —-save react-redux`. After that we import the Provider component, and wrap our main <App/> component with it:
 
 ```jsx
 // index.js
-import React from "react"
-import ReactDOM from "react-dom"
-import { createStore } from "redux"
-import { Provider } from "react-redux"
-import App from "./App"
-import reducer from "./store/reducer"
+import React from "react";
+import ReactDOM from "react-dom";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import App from "./App";
+import reducer from "./store/reducer";
 
-const store = createStore(reducer)
+const store = createStore(reducer);
 
 // Provider is a helper component. We inject our redux store into the React app by wrapping it with Provider component, so that we can access the store inside our react components. The Provider component expects a store property:
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById("root")
-)
+  document.getElementById("root"),
+);
 ```
 
 Now we have a redux store, and it is connected to our react app. It's time to create a stateful component that can both read and update the global state. For subscribing, the react-redux package provides us a method called `connect`, which returns a higher-order component that we can use to wrap our new component's export with:
@@ -101,11 +101,11 @@ Now we have a redux store, and it is connected to our react app. It's time to cr
 ```jsx
 // Counter.js
 
-import React, { Component } from "react"
-import { connect } from "react-redux"
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import CounterControl from "../../components/CounterControl/CounterControl"
-import CounterOutput from "../../components/CounterOutput/CounterOutput"
+import CounterControl from "../../components/CounterControl/CounterControl";
+import CounterOutput from "../../components/CounterOutput/CounterOutput";
 
 class Counter extends Component {
   render() {
@@ -122,7 +122,7 @@ class Counter extends Component {
           INCREMENT BY 10
         </button>
       </div>
-    )
+    );
   }
 }
 
@@ -133,27 +133,27 @@ class Counter extends Component {
 
 // This returns the global state's counter as a count variable, as a prop to the current component. This component is able to reach it from `this.props.count`.
 // the state parameter in this function refers to the global application state
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     count: state.counter,
-  }
-}
+  };
+};
 
 // dispatch is actually `store.dispatch`, but it can be used directly as `dispatch` as well, a the react-redux package converts it to store.dispatch behind the scenes:
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     // These functions will be returned as props to this component and will call `store.dispatch` when they are executed:
     onIncrementCounter: () => dispatch({ type: "INCREMENT" }),
     onDecrementCounter: () => dispatch({ type: "DECREMENT" }),
     onIncrementCounterBy10: () =>
       dispatch({ type: "ADD_PAYLOAD", payload: { value: 10 } }),
-  }
-}
+  };
+};
 
 // If you want the component to just subscribe to the global state but not change it, you can only define mapStateToProps: connect(mapStateToProps)(Counter)
 // If you only want to change but not read the application state, you pass null as the first argument, and define mapDispatchToProps: connect(null, mapDispatchToProps)(Counter)
 // In this component, we are doing them both, so we define both arguments:
-export default connect(mapStateToProps, mapDispatchToProps)(Counter)
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 ```
 
 In this example, as you might have noticed, the global state has another value, which is `name`. The Counter component neither is subscribed to it nor has a chance to change it. By spreading the state in the reducer before we add in the changed piece of state, we guarantee that the unchanged parts of the global state stay intact.
@@ -203,7 +203,7 @@ export default CounterContext;
 </CounterContext.Consumer>
 ```
 
-For the use of the Context API in functional components, check out [useContext hook](https://yagmurcetintas.com/journal/react-hooks#useContext).
+For the use of the Context API in functional components, check out [useContext hook](https://yagmurtas.com/journal/react-hooks#useContext).
 
 ### Which one to choose?
 
