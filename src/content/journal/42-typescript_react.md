@@ -6,7 +6,7 @@ summary: "In this article, I give examples on how to use TypeScript with React (
 contributor: ""
 ---
 
-This is no article for the faint-hearted! If you don't know React basics, I suggest you go through them first. If you don't know how TypeScript works, munch on [this article](https://yagmurcetintas.com/journal/introduction-to-typescript). After that make sure you have Node.js and a code editor installed on your computer and you're good to go!
+This is no article for the faint-hearted! If you don't know React basics, I suggest you go through them first. If you don't know how TypeScript works, munch on [this article](https://yagmurtas.com/journal/introduction-to-typescript). After that make sure you have Node.js and a code editor installed on your computer and you're good to go!
 
 **Creating a React starter project with TypeScript support:**
 
@@ -49,7 +49,7 @@ Let's create a very simple child and a parent component to play with:
 ```jsx
 // Parent.tsx:
 // Parent component will simply return ChildComponent:
-import { ChildComponent } from "../components/ChildComponent"
+import { ChildComponent } from "../components/ChildComponent";
 
 export const ParentComponent = () => {
   return (
@@ -57,14 +57,14 @@ export const ParentComponent = () => {
       <h1>Hello from the parent component!</h1>
       <ChildComponent />
     </div>
-  )
-}
+  );
+};
 
 // Child.tsx:
 // Child component will render some JSX content:
 export const ChildComponent = () => {
-  return <p>Hello from the child component!</p>
-}
+  return <p>Hello from the child component!</p>;
+};
 ```
 
 Now let's try to pass along props from the ParentComponent to the ChildComponent. Whenever a child component is expected to receive some props from a parent component, we need to define what exactly the ChildComponent should expect.
